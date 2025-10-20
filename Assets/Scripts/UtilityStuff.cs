@@ -22,10 +22,10 @@ public static class UtilityStuff
 
     public static void _KillAll()
     {
-        foreach (var o in MainClass.ALL)
+        foreach (var o in GameManager.Instance.AllSpawnedItems)
         {
             if (o != null) Object.Destroy(o);
         }
-        MainClass.ALL.Clear();
+        //GameManager.Instance.AllSpawnedItems.Clear();
     }
 }

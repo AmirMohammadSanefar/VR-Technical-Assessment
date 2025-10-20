@@ -11,7 +11,7 @@ public class ExtraLogicB : MonoBehaviour
 
     void Tick()
     {
-        foreach (var g in MainClass.ALL)
+        foreach (var g in GameManager.Instance.AllSpawnedItems)
         {
             if (g == null) continue;
             var rt = g.GetComponent<RandomThings>();

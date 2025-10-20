@@ -1,7 +1,6 @@
 using UnityEngine;
 using System.Collections;
 
-
 public class Helper
 {
     public string _Name = "help";

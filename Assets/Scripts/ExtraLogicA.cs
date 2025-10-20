@@ -1,11 +1,10 @@
 using UnityEngine;
 
-
 public class ExtraLogicA : MonoBehaviour
 {
     void Update()
     {
-        var all = MainClass.ALL;
+        var all = GameManager.Instance.AllSpawnedItems;
         for (int i = 0; i < all.Count; i++)
         {
             if (all[i] == null) continue;
