@@ -1816,6 +1816,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1430242183}
   - component: {fileID: 1430242184}
+  - component: {fileID: 1430242188}
+  - component: {fileID: 1430242187}
+  - component: {fileID: 1430242186}
+  - component: {fileID: 1430242185}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1858,6 +1862,54 @@ MonoBehaviour:
   - {fileID: 1923488615}
   _maxCollectibleItems: 50
   _spawnRange: 25
+--- !u!114 &1430242185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1430242181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab86593fc494222449e618392482a523, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1430242186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1430242181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4772646a9c75d1e43a068329982dae41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1430242187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1430242181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1ad5ceb6a81464419968b47833553f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1430242188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1430242181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 784c6a8b98bc4bb4196811af028ee895, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1557995987
 GameObject:
   m_ObjectHideFlags: 0

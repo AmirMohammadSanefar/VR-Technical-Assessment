@@ -1,63 +1,66 @@
 using UnityEngine;
 
-public class AnalyticsComponent : MonoBehaviour
+namespace Refactory
 {
-    #region MonoBehaviourFunctions
-
-    private void Start()
+    public class AnalyticsComponent : MonoBehaviour
     {
-        RegisterWithAnalytics();
-    }
+        #region MonoBehaviourFunctions
 
-    private void OnEnable()
-    {
-        RegisterWithAnalytics();
-    }
-
-    private void OnDisable()
-    {
-        UnregisterFromAnalytics();
-    }
-
-    private void OnDestroy()
-    {
-        UnregisterFromAnalytics();
-    }
-
-    private void Update()
-    {
-        AnalyticsManager.Instance.ExecuteAnalytics();
-    }
-
-    #endregion
-
-    #region Functions
-
-    private void RegisterWithAnalytics()
-    {
-        if (AnalyticsManager.Instance != null)
+        private void Start()
         {
-            AnalyticsManager.Instance.Register(this);
+            RegisterWithAnalytics();
         }
-    }
 
-    private void UnregisterFromAnalytics()
-    {
-        if (AnalyticsManager.Instance != null)
+        private void OnEnable()
         {
-            AnalyticsManager.Instance.Unregister(this);
+            RegisterWithAnalytics();
         }
-    }
 
-    public string GetAnalyticsData()
-    {
-        return $"AnalyticsComponent_{gameObject.name}_{GetInstanceID()}";
-    }
+        private void OnDisable()
+        {
+            UnregisterFromAnalytics();
+        }
 
-    public void SendCustomEvent(string eventName, params object[] data)
-    {
-        Debug.Log($"Analytics Event: {eventName} from {gameObject.name}");
-    }
+        private void OnDestroy()
+        {
+            UnregisterFromAnalytics();
+        }
 
-    #endregion
+        private void Update()
+        {
+            AnalyticsManager.Instance.ExecuteAnalytics();
+        }
+
+        #endregion
+
+        #region Functions
+
+        private void RegisterWithAnalytics()
+        {
+            if (AnalyticsManager.Instance != null)
+            {
+                AnalyticsManager.Instance.Register(this);
+            }
+        }
+
+        private void UnregisterFromAnalytics()
+        {
+            if (AnalyticsManager.Instance != null)
+            {
+                AnalyticsManager.Instance.Unregister(this);
+            }
+        }
+
+        public string GetAnalyticsData()
+        {
+            return $"AnalyticsComponent_{gameObject.name}_{GetInstanceID()}";
+        }
+
+        public void SendCustomEvent(string eventName, params object[] data)
+        {
+            Debug.Log($"Analytics Event: {eventName} from {gameObject.name}");
+        }
+
+        #endregion
+    }
 }

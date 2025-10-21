@@ -1,51 +1,54 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class GameUtility
+namespace Refactory
 {
-    #region Definitions
-
-    #region Variables
-
-    private static Dictionary<string, object> _dataBag = new();
-
-    #endregion
-
-    #endregion
-
-    #region Functions
-
-    public static void Put(string key, object value)
+    public static class GameUtility
     {
-        if (_dataBag.ContainsKey(key))
-            _dataBag[key] = value;
-        else
-            _dataBag.Add(key, value);
-    }
+        #region Definitions
 
-    public static object Get(string key)
-    {
-        return _dataBag.ContainsKey(key) ? _dataBag[key] : null;
-    }
+        #region Variables
 
-    public static T Get<T>(string key, T defaultValue = default(T))
-    {
-        object value = Get(key);
-        return value is T typedValue ? typedValue : defaultValue;
-    }
+        private static Dictionary<string, object> _dataBag = new();
 
-    public static void ClearAll()
-    {
-        foreach (var item in GameManager.AllCollectibleItems)
+        #endregion
+
+        #endregion
+
+        #region Functions
+
+        public static void Put(string key, object value)
         {
-            if (item != null)
-            {
-                Object.Destroy(item);
-            }
+            if (_dataBag.ContainsKey(key))
+                _dataBag[key] = value;
+            else
+                _dataBag.Add(key, value);
         }
-        GameManager.AllCollectibleItems.Clear();
-        _dataBag.Clear();
-    }
 
-    #endregion
+        public static object Get(string key)
+        {
+            return _dataBag.ContainsKey(key) ? _dataBag[key] : null;
+        }
+
+        public static T Get<T>(string key, T defaultValue = default(T))
+        {
+            object value = Get(key);
+            return value is T typedValue ? typedValue : defaultValue;
+        }
+
+        public static void ClearAll()
+        {
+            foreach (var item in GameManager.AllCollectibleItems)
+            {
+                if (item != null)
+                {
+                    Object.Destroy(item);
+                }
+            }
+            GameManager.AllCollectibleItems.Clear();
+            _dataBag.Clear();
+        }
+
+        #endregion
+    }
 }

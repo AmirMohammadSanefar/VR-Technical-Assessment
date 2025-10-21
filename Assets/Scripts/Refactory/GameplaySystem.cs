@@ -1,62 +1,65 @@
 using System.Collections;
 using UnityEngine;
 
-public class GameplaySystem : MonoBehaviour
+namespace Refactory
 {
-    #region MonoBehaviourFunctions
-
-    private void Start()
+    public class GameplaySystem : MonoBehaviour
     {
-        StartCoroutine(ProximityCheckCoroutine());
-        StartCoroutine(BatchRotationCoroutine());
-    }
+        #region MonoBehaviourFunctions
 
-    #endregion
-
-    #region Functions
-
-    private IEnumerator ProximityCheckCoroutine()
-    {
-        while (true)
+        private void Start()
         {
-            yield return new WaitForSeconds(0.1f);
-            CheckProximityScaling();
+            StartCoroutine(ProximityCheckCoroutine());
+            StartCoroutine(BatchRotationCoroutine());
         }
-    }
 
-    private IEnumerator BatchRotationCoroutine()
-    {
-        while (true)
+        #endregion
+
+        #region Functions
+
+        private IEnumerator ProximityCheckCoroutine()
         {
-            yield return new WaitForSeconds(0.02f);
-            ProcessBatchRotation();
-        }
-    }
-
-    private void CheckProximityScaling()
-    {
-        foreach (var item in GameManager.AllCollectibleItems)
-        {
-            if (item == null) continue;
-
-            float distance = Vector3.Distance(transform.position, item.transform.position);
-            if (distance < 1.5f)
+            while (true)
             {
-                item.transform.localScale *= 0.999f;
+                yield return new WaitForSeconds(0.1f);
+                CheckProximityScaling();
             }
         }
-    }
 
-    private void ProcessBatchRotation()
-    {
-        foreach (var item in GameManager.AllCollectibleItems)
+        private IEnumerator BatchRotationCoroutine()
         {
-            if (item == null) continue;
-
-            var collectible = item.GetComponent<CollectibleItem>();
-            collectible?.DoRotate();
+            while (true)
+            {
+                yield return new WaitForSeconds(0.02f);
+                ProcessBatchRotation();
+            }
         }
-    }
 
-    #endregion
+        private void CheckProximityScaling()
+        {
+            foreach (var item in GameManager.AllCollectibleItems)
+            {
+                if (item == null) continue;
+
+                float distance = Vector3.Distance(transform.position, item.transform.position);
+                if (distance < 1.5f)
+                {
+                    item.transform.localScale *= 0.999f;
+                }
+            }
+        }
+
+        private void ProcessBatchRotation()
+        {
+            foreach (var item in GameManager.AllCollectibleItems)
+            {
+                if (item == null) continue;
+
+                var collectible = item.GetComponent<CollectibleItem>();
+                collectible?.DoRotate();
+            }
+        }
+
+        #endregion
+    }
 }
